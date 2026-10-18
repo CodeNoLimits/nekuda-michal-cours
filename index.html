@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>נקודה · חמש פגישות בבת ים</title>
+<meta name="description" content="חמש פגישות של שעתיים עד שלוש, בחנות בבת ים, עם מיכל וג׳מה. הליכה אחת, חמישה מקומות, ופרויקט אחד לכל אחת.">
+<link rel="icon" href="assets/nekuda-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "חמש פגישות בבת ים",
+  "description": "חמש פגישות של שעתיים עד שלוש בחנות בבת ים. כל אחת יוצאת עם פרויקט משלה.",
+  "inLanguage": "he",
+  "provider": {"@type": "Person", "name": "David Amor"},
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "location": {"@type": "Place", "name": "בת ים"}
+  }
+}
+</script>
+<style>
+:root {
+  --paper: #f3ecdf;
+  --paper-2: #e7dccb;
+  --ink: #1b140f;
+  --muted: #5c5148;
+  --line: #cbbfae;
+  --orange: #ef5b12;
+  --orange-ink: #9a3208;
+  --sheet: #f7f1e6;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; overflow-x: clip; }
+body {
+  background:
+    radial-gradient(1200px 500px at 80% -10%, #efe4d2 0%, transparent 60%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Heebo, Arial, sans-serif;
+  line-height: 1.55;
+}
+.sheet {
+  max-width: 1120px;
+  margin: 28px auto 64px;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  position: relative;
+  padding: 28px 22px 40px;
+}
+.sheet::before, .sheet::after, .mark-tr, .mark-bl {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--ink);
+  border-style: solid;
+}
+.sheet::before { top: 8px; right: 8px; border-width: 1px 1px 0 0; }
+.sheet::after { bottom: 8px; left: 8px; border-width: 0 0 1px 1px; }
+.mark-tr { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
+.mark-bl { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand img { width: 54px; height: 54px; }
+.kicker { margin: 0; font-size: 13px; letter-spacing: .04em; color: var(--muted); }
+.proof { margin: 0; font-size: 13px; color: var(--orange-ink); }
+h1 {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  margin: 22px 0 8px;
+}
+.lede { font-size: 18px; max-width: 68ch; margin: 0 0 18px; }
+a { color: var(--orange-ink); }
+.player {
+  background: #14110e;
+  border-radius: 6px;
+  overflow: hidden;
+}
+video {
+  width: 100%;
+  aspect-ratio: 1264 / 720;
+  display: block;
+  background: #111;
+}
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 12px 0 22px;
+}
+.chapters button {
+  font-family: inherit;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 10px 8px;
+  cursor: pointer;
+  text-align: right;
+}
+.chapters button[aria-current="true"] {
+  border-color: var(--orange);
+  color: var(--orange-ink);
+  background: #fff8f3;
+}
+.clip { overflow-x: auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.strip { display: flex; gap: 10px; width: max-content; padding: 12px 2px; }
+.strip figure { margin: 0; width: 220px; }
+.strip img { width: 220px; height: 124px; object-fit: cover; display: block; }
+.strip figcaption { font-size: 13px; color: var(--muted); padding-top: 4px; }
+details {
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0 12px;
+}
+summary {
+  font-family: "Frank Ruhl Libre", serif;
+  font-size: 26px;
+  cursor: pointer;
+}
+.when { color: var(--muted); font-family: Heebo, sans-serif; font-size: 14px; }
+.line {
+  font-size: 18px;
+  margin: 8px 0;
+}
+.note { color: var(--muted); font-size: 14px; }
+ol.time, ul.rules { margin: 8px 0 0; padding-inline-start: 18px; }
+ol.time li, ul.rules li { margin: 4px 0; }
+.machine {
+  margin-top: 28px;
+  background: var(--paper-2);
+  padding: 16px;
+  border: 1px dashed var(--line);
+}
+.machine h2 { font-family: "Frank Ruhl Libre", serif; margin: 0 0 8px; }
+.row {
+  display: grid;
+  grid-template-columns: 1.4fr .8fr .8fr .6fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+input {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  width: 100%;
+}
+.actions { display: flex; gap: 8px; margin-top: 8px; }
+button.go, button.wipe {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+button.go { background: var(--orange); color: #fff; border-color: var(--orange-ink); }
+button.wipe { background: transparent; }
+#winner { min-height: 1.4em; font-weight: 700; }
+footer {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  font-size: 15px;
+}
+@media (max-width: 800px) {
+  .chapters { grid-template-columns: 1fr 1fr; }
+  .chapters button:last-child { grid-column: 1 / -1; }
+  .row { grid-template-columns: 1fr 1fr; }
+  .sheet { margin: 0; border-left: 0; border-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <span class="mark-tr"></span>
+  <span class="mark-bl"></span>
+  <header class="top">
+    <div class="brand">
+      <img src="assets/nekuda-mark.png" alt="נקודה">
+      <p class="kicker">הגהה · בית דפוס · בת ים</p>
+    </div>
+    <p class="proof" dir="ltr">50.2s · 1264×720</p>
+  </header>
+  <h1>חמש פגישות, הליכה אחת.</h1>
+  <p class="lede">מיכל, ג׳מה, והחנות בבת ים. דוד הולך ישר. המקומות מתחלפים. בסוף, לכל אחת פרויקט משלה. הבית של נקודה: <a href="https://nekuda.co.il/">nekuda.co.il</a>.</p>
+  <div class="player">
+    <video id="film" controls playsinline preload="metadata" poster="assets/01-kotel.jpg">
+      <source src="clips/00-marche.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="chapters">
+    <button type="button" data-t="0.4">א. הכותל</button>
+    <button type="button" data-t="10.5">ב. בן יהודה</button>
+    <button type="button" data-t="20.6">ג. התחנה</button>
+    <button type="button" data-t="30.7">ד. בת ים</button>
+    <button type="button" data-t="40.8">ה. הירח</button>
+  </div>
+  <div class="clip">
+    <div class="strip">
+      <figure><img src="assets/01-kotel.jpg" alt="דוד בכותל, הולך ישר אל המצלמה"><figcaption>הכותל</figcaption></figure>
+      <figure><img src="assets/02-ben-yehuda.jpg" alt="דוד ברחוב בן יהודה"><figcaption>בן יהודה</figcaption></figure>
+      <figure><img src="assets/03-station.jpg" alt="תחנת הרכבת, לוח ענבר ריק בלי אותיות"><figcaption>התחנה, לוח ריק</figcaption></figure>
+      <figure><img src="assets/04-bat-yam.jpg" alt="בית דפוס בבת ים, דף לבן עם עיגול שחור"><figcaption>בת ים, עיגול שחור</figcaption></figure>
+      <figure><img src="assets/05-moon.jpg" alt="הליכה על הירח בחולצת זית, כדור הארץ מאחור, בלי חליפה"><figcaption>הירח, בלי חליפה</figcaption></figure>
+    </div>
+  </div>
+  <p class="note">חמש השורות למטה הן משפטי הקורס. הן לא תמלול של הפסקול.</p>
+
+  <details open>
+    <summary>פגישה א <span class="when">כשעתיים וחצי · הכותל</span></summary>
+    <p class="line">אני דוד מירושלים. עם מעט ידע, תפילה ואמונה, בניתי בית של כלים. היום: מהי בינה, ג׳מיני, קלוד וגרוק.</p>
+    <ol class="time">
+      <li>0:00 מה שכבר עובד בחנות — 20 דקות</li>
+      <li>0:20 מהי בינה, בלי מיתוס — 20 דקות</li>
+      <li>0:40 ג׳מיני: שיחה, תמונה, ופלואו — 30 דקות</li>
+      <li>1:10 קלוד וקלוד קוד: קוד, חפצים, אוטומציות — 25 דקות</li>
+      <li>1:35 הצצה קצרה לאנטיגרביטי — 10 דקות</li>
+      <li>1:45 גרוק, עובד מהיר, וגרוק בוט — 20 דקות</li>
+      <li>2:05 תרגיל: הצעה אמיתית ללקוח, מתוקנת ביד — 25 דקות</li>
+    </ol>
+  </details>
+  <details>
+    <summary>פגישה ב <span class="when">כשעתיים וחצי · בן יהודה · בלי קוד</span></summary>
+    <p class="line">בבן יהודה נכנסים לפלואו, בלי קוד. כל אחת בונה מוקאפ לאתר שלה, וארבעה סרטונים קצרים.</p>
+    <ol class="time">
+      <li>0:00 מה שכבר נראה טוב, בלי קוד</li>
+      <li>0:15 פלואו עמוק יותר, אותו פנים</li>
+      <li>0:55 תבנית מוקאפ: נייר, דיו, הסימן הכתום</li>
+      <li>1:25 כל אחת בונה את המוקאפ שלה</li>
+      <li>2:05 ארבעה סרטונים קצרים</li>
+      <li>2:45 עברית נצרבת אחר כך, לא בתוך המודל</li>
+    </ol>
+  </details>
+  <details>
+    <summary>פגישה ג <span class="when">ארוכה · התחנה</span></summary>
+    <p class="line">בתחנה מחברים הכול: אתר אמיתי, רשתות, מסמכים אוטומטיים, וסדר על המחשב. אתן מאשרות כל מה שיוצא.</p>
+    <ol class="time">
+      <li>0:00 ממוקאפ לאתר אמיתי</li>
+      <li>0:40 חיבור הרשתות שכבר בשימוש</li>
+      <li>1:10 מסמך שנוצר, ואז נקרא ביד</li>
+      <li>1:45 פוסט רק אחרי שאישרתן</li>
+      <li>2:10 סדר על המחשב</li>
+    </ol>
+  </details>
+  <details>
+    <summary>פגישה ד <span class="when">מתקדמת · בית הדפוס</span></summary>
+    <p class="line">בבת ים, בבית הדפוס, אני מחזיק דף של נקודה. מכאן: סרט, דפדפן שעובד, וחיפוש לקוחות עם קלוד.</p>
+    <ol class="time">
+      <li>0:00 סרט מתמונה נעולה, אותו אדם</li>
+      <li>0:40 דפדפן שעובד לבד, בלי לגעת בחלון של מישהו אחר</li>
+      <li>1:15 חיפוש לקוחות עם קלוד קוד</li>
+      <li>1:55 דף הגהה ביד: עיגול שחור. הסימן הכתום נשאר בקובץ</li>
+      <li>2:15 סודות נשארים במחזיק המפתחות</li>
+    </ol>
+  </details>
+  <details>
+    <summary>פגישה ה <span class="when">מקצה לקצה · הירח</span></summary>
+    <p class="line">על הירח הולכים עד הסוף. מכונה שמשתפרת לבד, ובוחרת ערוץ יוטיוב אחד. יצאתן לדרך.</p>
+    <ol class="time">
+      <li>0:00 פרויקט אחד לכל אחת</li>
+      <li>0:20 מקלידות צפיות ומנויים. המכונה מחשבת. הגבוה מנצח</li>
+      <li>1:00 ערוץ אחד, לא חמישה</li>
+      <li>1:20 מה לשפר בשבוע הבא, ביד. המכונה לא שולחת</li>
+      <li>1:50 איך להגיע לדוד</li>
+      <li>2:05 התרגיל שעל הגיליון למטה</li>
+    </ol>
+  </details>
+
+  <ul class="rules">
+    <li>עברית על תמונה נצרבת אחר כך. המודל שובר אותיות.</li>
+    <li>אדם קורא לפני שכל דבר יוצא.</li>
+    <li>בלי וואטסאפ קר.</li>
+    <li>סודות נשארים במחזיק המפתחות.</li>
+  </ul>
+
+  <form class="machine" id="machine">
+    <h2>המכונה. שלוש שורות. היחס הגבוה מנצח.</h2>
+    <p class="note">מקלידות מספרים. שום דבר לא נשלח לשרת. המפתח בדפדפן: nekuda-machine-v1.</p>
+    <div class="row">
+      <input name="n1" aria-label="שם ערוץ 1" placeholder="שם הערוץ">
+      <input name="v1" inputmode="numeric" aria-label="צפיות 1" placeholder="צפיות">
+      <input name="s1" inputmode="numeric" aria-label="מנויים 1" placeholder="מנויים">
+      <output data-ratio="1"></output>
+    </div>
+    <div class="row">
+      <input name="n2" aria-label="שם ערוץ 2" placeholder="שם הערוץ">
+      <input name="v2" inputmode="numeric" aria-label="צפיות 2" placeholder="צפיות">
+      <input name="s2" inputmode="numeric" aria-label="מנויים 2" placeholder="מנויים">
+      <output data-ratio="2"></output>
+    </div>
+    <div class="row">
+      <input name="n3" aria-label="שם ערוץ 3" placeholder="שם הערוץ">
+      <input name="v3" inputmode="numeric" aria-label="צפיות 3" placeholder="צפיות">
+      <input name="s3" inputmode="numeric" aria-label="מנויים 3" placeholder="מנויים">
+      <output data-ratio="3"></output>
+    </div>
+    <div class="actions">
+      <button class="go" type="submit">חשב</button>
+      <button class="wipe" type="reset">נקה</button>
+    </div>
+    <p id="winner"></p>
+  </form>
+
+  <footer>
+    <a href="https://nekuda.co.il/">nekuda.co.il</a>
+    <a href="https://wa.me/972584921492?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%93%D7%95%D7%93%2C%20%D7%A1%D7%99%D7%99%D7%9E%D7%A0%D7%95%20%D7%90%D7%AA%20%D7%97%D7%9E%D7%A9%20%D7%94%D7%A4%D7%92%D7%99%D7%A9%D7%95%D7%AA%20%D7%91%D7%91%D7%AA%20%D7%99%D7%9D">וואטסאפ לדוד</a>
+    <a href="fr.html">פתק עבודה</a>
+  </footer>
+</div>
+<script>
+(function () {
+  var KEY = "nekuda-machine-v1";
+  var form = document.getElementById("machine");
+  var out = document.getElementById("winner");
+  var film = document.getElementById("film");
+  function num(v) {
+    var d = String(v || "").replace(/[^\d]/g, "");
+    return d ? parseInt(d, 10) : 0;
+  }
+  function rows() {
+    return [1, 2, 3].map(function (i) {
+      return {
+        n: form["n" + i].value.trim(),
+        v: num(form["v" + i].value),
+        s: num(form["s" + i].value)
+      };
+    });
+  }
+  function paint(list) {
+    var best = null;
+    list.forEach(function (r, i) {
+      var slot = form.querySelector('[data-ratio="' + (i + 1) + '"]');
+      if (r.s <= 0) slot.textContent = "אין מנויים";
+      else slot.textContent = (r.v / r.s).toFixed(2);
+      if (!r.n || r.s <= 0) return;
+      var ratio = r.v / r.s;
+      if (!best || ratio > best.ratio) best = { n: r.n, ratio: ratio };
+    });
+    out.textContent = best ? (best.n + " · " + best.ratio.toFixed(2)) : "צריך שם, צפיות, ומנויים גדולים מאפס.";
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(rows())); } catch (e) {}
+  }
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return;
+      JSON.parse(raw).forEach(function (r, idx) {
+        var i = idx + 1;
+        if (!form["n" + i]) return;
+        form["n" + i].value = (r && r.n) || "";
+        form["v" + i].value = (r && r.v) || "";
+        form["s" + i].value = (r && r.s) || "";
+      });
+    } catch (e) {}
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var list = rows();
+    paint(list);
+    save();
+  });
+  form.addEventListener("reset", function () {
+    setTimeout(function () {
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      out.textContent = "";
+      form.querySelectorAll("[data-ratio]").forEach(function (el) { el.textContent = ""; });
+    }, 0);
+  });
+  document.querySelectorAll("[data-t]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      film.currentTime = parseFloat(btn.getAttribute("data-t"));
+      var play = film.play();
+      if (play && play.catch) play.catch(function () {});
+    });
+  });
+  film.addEventListener("timeupdate", function () {
+    var t = film.currentTime;
+    var marks = [0.4, 10.5, 20.6, 30.7, 40.8];
+    var current = 0;
+    marks.forEach(function (m, i) { if (t + 0.05 >= m) current = i; });
+    document.querySelectorAll("[data-t]").forEach(function (btn, i) {
+      if (i === current) btn.setAttribute("aria-current", "true");
+      else btn.removeAttribute("aria-current");
+    });
+  });
+  load();
+})();
+</script>
+</body>
+</html>
